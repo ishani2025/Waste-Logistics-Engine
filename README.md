@@ -1,48 +1,54 @@
-# Network-Optimizer
-Project Overview
-The Network Optimizer is a smart waste management optimization system designed to model and analyze waste collection networks using classical graph algorithms. The project focuses on optimizing infrastructure cost and operational routing by applying Minimum Spanning Tree (MST) and Shortest Path algorithms.
+# Network Optimizer – Smart Waste Network Optimization System
 
-The system is implemented as a full-stack application with:
+## Project Overview
 
-A FastAPI backend that performs graph computations
+The **Network Optimizer** is a smart waste management optimization system designed to model and analyze waste collection networks using classical graph algorithms. The project focuses on optimizing infrastructure cost and operational routing by applying **Minimum Spanning Tree (MST)** and **Shortest Path** algorithms.
 
-A modern frontend that allows users to input graph data and visualize results
+The system is implemented as a **full-stack application** with:
 
-This project demonstrates the practical application of Data Structures and Algorithms (DSA) in real-world urban infrastructure problems such as waste collection and transportation planning.
+* A **FastAPI backend** that performs graph computations
+* A **modern frontend** that allows users to input graph data and visualize results
 
-Problem Statement
+This project demonstrates the practical application of **Data Structures and Algorithms (DSA)** in real-world urban infrastructure problems such as waste collection and transportation planning.
+
+---
+
+## Problem Statement
+
 Urban waste management requires:
 
-Minimizing the total cost of connecting waste collection points
-
-Finding the most efficient routes for daily waste transportation
+* Minimizing the total cost of connecting waste collection points
+* Finding the most efficient routes for daily waste transportation
 
 Manual planning is inefficient and error-prone. This project provides a computational approach to:
 
-Design an optimized network
+* Design an optimized network
+* Compute shortest paths from a source node
+* Visualize algorithm execution clearly
 
-Compute shortest paths from a source node
+---
 
-Visualize algorithm execution clearly
+## Solution Approach
 
-Solution Approach
 The system uses two core algorithms:
 
-1. Kruskal’s Algorithm (with Disjoint Set Union)
-Used to construct a Minimum Spanning Tree
+### 1. Kruskal’s Algorithm (with Disjoint Set Union)
 
-Ensures all nodes are connected with minimum total edge weight
+* Used to construct a **Minimum Spanning Tree**
+* Ensures all nodes are connected with minimum total edge weight
+* Disjoint Set Union (DSU) is used to prevent cycles efficiently
 
-Disjoint Set Union (DSU) is used to prevent cycles efficiently
+### 2. Dijkstra’s Algorithm
 
-2. Dijkstra’s Algorithm
-Computes the shortest path distances from a given source node
+* Computes the **shortest path distances** from a given source node
+* Uses a priority queue for optimal performance
+* Outputs both distances and visit order for transparency
 
-Uses a priority queue for optimal performance
+---
 
-Outputs both distances and visit order for transparency
+## Project Architecture
 
-Project Architecture
+```
 Network-Optimizer/
 ├── backend/
 │   ├── main.py
@@ -55,87 +61,138 @@ Network-Optimizer/
 │   └── vite.config.js
 ├── README.md
 └── .gitignore
-Backend Responsibilities
-Accepts graph data through REST APIs
+```
 
-Implements Kruskal’s and Dijkstra’s algorithms
+---
 
-Returns structured JSON responses
+## Backend Responsibilities
 
-Enables CORS for frontend communication
+* Accepts graph data through REST APIs
+* Implements Kruskal’s and Dijkstra’s algorithms
+* Returns structured JSON responses
+* Enables CORS for frontend communication
+* Built using FastAPI and Pydantic
 
-Built using FastAPI and Pydantic
+---
 
-Frontend Responsibilities
-Collects user input for graph nodes and edges
+## Frontend Responsibilities
 
-Sends data to backend APIs
+* Collects user input for graph nodes and edges
+* Sends data to backend APIs
+* Displays:
 
-Displays:
+  * Accepted MST edges
+  * Shortest path distances
+  * Algorithm execution logs
+* Built using a modern JavaScript framework with Vite
 
-Accepted MST edges
+---
 
-Shortest path distances
+## Technology Stack
 
-Algorithm execution logs
+### Backend
 
-Built using a modern JavaScript framework with Vite
+* Python 3.10
+* FastAPI
+* Uvicorn
+* Pydantic
 
-Technology Stack
-Backend
-Python 3.10
+### Frontend
 
-FastAPI
+* JavaScript
+* Vite
+* Node.js
 
-Uvicorn
+---
 
-Pydantic
+## Setup Instructions
 
-Frontend
-JavaScript
+### Prerequisites
 
-Vite
+* Python 3.10 or later
+* Node.js (LTS version recommended)
+* Git
 
-Node.js
+---
 
-Setup Instructions
-Prerequisites
-Python 3.10 or later
+### Backend Setup
 
-Node.js (LTS version recommended)
+1. Navigate to the backend directory:
 
-Git
+   ```bash
+   cd backend
+   ```
 
-Backend Setup
-Navigate to the backend directory:
+2. Create and activate a virtual environment:
 
-cd backend
-Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate
+   ```
 
-python -m venv .venv
-.venv\Scripts\activate
-Install dependencies:
+3. Install dependencies:
 
-pip install -r req.txt
-Start the backend server:
+   ```bash
+   pip install -r req.txt
+   ```
 
-uvicorn main:app --reload
-Backend will be available at:
+4. Start the backend server:
 
-http://127.0.0.1:8000
-API documentation:
+   ```bash
+   uvicorn main:app --reload
+   ```
 
-http://127.0.0.1:8000/docs
-Frontend Setup
-Navigate to the frontend directory:
+5. Backend will be available at:
 
-cd frontend
-Install dependencies:
+   ```
+   http://127.0.0.1:8000
+   ```
 
-npm install
-Start the frontend server:
+6. API documentation:
 
-npm run dev
-Frontend will be available at:
+   ```
+   http://127.0.0.1:8000/docs
+   ```
 
-http://localhost:5173
+---
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the frontend server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Frontend will be available at:
+
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+## How the System Works
+
+1. User enters graph data in the frontend
+2. Frontend sends data to backend APIs
+3. Backend computes:
+
+   * Minimum Spanning Tree using Kruskal’s algorithm
+   * Shortest paths using Dijkstra’s algorithm
+4. Results are returned as JSON
+5. Frontend visualizes outputs and logs
+
+---
