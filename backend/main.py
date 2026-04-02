@@ -4,10 +4,6 @@ from pydantic import BaseModel
 import heapq
 
 app = FastAPI()
-<<<<<<< HEAD
-=======
-
->>>>>>> 291aaecb0cce97521e7176d01bf0be65229cdc88
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,7 +11,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-<<<<<<< HEAD
 @app.get("/")
 def root():
     return {"message": "API running"}
@@ -23,9 +18,6 @@ def root():
 @app.get("/health")
 def health():
     return {"status": "ok"}
-=======
-
->>>>>>> 291aaecb0cce97521e7176d01bf0be65229cdc88
 class Edge(BaseModel):
     u: int
     v: int

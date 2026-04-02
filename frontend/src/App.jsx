@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import API_BASE_URL from "./config";
+console.log("ENV:", import.meta.env.VITE_API_URL);
 const fetchData = async () => {
   try {
     const res = await axios.get(`${API_BASE_URL}/health`);
