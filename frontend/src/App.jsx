@@ -1,6 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
-
+import API_BASE_URL from "./config";
+const fetchData = async () => {
+  try {
+    const res = await axios.get(`${API_BASE_URL}/health`);
+    console.log(res.data);
+  } catch (err) {
+    console.error(err);
+  }
+};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const edgeId = (u, v) => `${Math.min(u, v)}-${Math.max(u, v)}`;
 const binIcon = "https://cdn-icons-png.flaticon.com/512/5028/5028066.png";
