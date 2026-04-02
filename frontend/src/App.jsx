@@ -110,7 +110,8 @@ export default function App()
     setMstEdges([]);
     const { visEdges } = visRef.current;
 
-    const res = await axios.post("http://127.0.0.1:8000/kruskal",{ n, edges });
+    const res =await axios.post(`${API_BASE_URL}/kruskal`, { n, edges });
+
     const accepted = [];
 
     for (const step of res.data.steps) {
@@ -138,7 +139,7 @@ export default function App()
     setLog([]);
     const visited = new Set();
     
-    const res = await axios.post("http://127.0.0.1:8000/dijkstra",{ n, edges, source:Number(source) });
+    const res = await axios.post(`${API_BASE_URL}/dijkstra`, { n, edges, source: Number(source) });
     setDistances(d => ({ ...d, [source]:0 }));
 
     for (const step of res.data.steps) {
